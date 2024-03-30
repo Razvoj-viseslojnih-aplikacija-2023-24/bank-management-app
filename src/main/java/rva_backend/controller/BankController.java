@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import rva_backend.Implementation.BankServiceImpl;
 import rva_backend.models.Bank;
+import rva_backend.servisi.BankService;
 
 @RestController
 public class BankController {
 
 	@Autowired
-	private BankServiceImpl service;
+	private BankService service;
 	
 	@GetMapping("/bank")
 	public List<Bank> getAllBanks(){

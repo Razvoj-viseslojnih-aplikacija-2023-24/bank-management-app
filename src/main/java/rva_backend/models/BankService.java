@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.*;
+
 @Entity
 public class BankService implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -21,7 +22,7 @@ public class BankService implements Serializable{
 	private Branch branch ;
 	
 	@ManyToOne
-	@JoinColumn(name="user")
+	@JoinColumn(name="`user`")
 	private User user;
 
 	

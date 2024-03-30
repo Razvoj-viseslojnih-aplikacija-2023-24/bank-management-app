@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name="\"User\"")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -75,6 +75,5 @@ public class User implements Serializable {
 	public void setBankService(List<BankService> bankService) {
 		this.bankService = bankService;
 	}
-	
 	
 }

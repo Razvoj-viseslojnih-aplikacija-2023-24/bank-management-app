@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import rva_backend.Implementation.UserServiceImpl;
 import rva_backend.models.User;
+import rva_backend.servisi.UserService;
 
 @RestController
 public class UserController {
 
 	@Autowired
-	private UserServiceImpl service;
+	private UserService service;
 	
 	@GetMapping("/user")
 	public List<User> getAllUsers(){

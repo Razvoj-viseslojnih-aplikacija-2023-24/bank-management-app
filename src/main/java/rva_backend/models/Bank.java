@@ -9,10 +9,12 @@ import jakarta.persistence.*;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.SequenceGenerator;
+
 @Entity
 public class Bank implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@SequenceGenerator(name= "BANK_SEQ_GENERATOR", sequenceName = "BANK_SEQ", allocationSize = 1)
 	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "BANK_SEQ_GENERATOR")
