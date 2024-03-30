@@ -7,6 +7,6 @@ import rva_backend.models.Branch;
 
 
 public interface BranchService extends CrudService<Branch> {
-	List<Branch> getBranchesByAdress(String adress);
+	List<Branch> getBranchesByAdress(String address);
 	List<Branch> getForeignKey(Bank bank);
 }

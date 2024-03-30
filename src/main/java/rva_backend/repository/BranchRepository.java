@@ -9,6 +9,6 @@ import rva_backend.models.Branch;
 
 public interface BranchRepository extends JpaRepository<Branch, Integer> {
 
-	List<Branch> findByAdressContainingIgnoreCase (String adress);
+	List<Branch> findByAddressContainingIgnoreCase (String address);
 	List<Branch> findByBank(Bank bank);
 }

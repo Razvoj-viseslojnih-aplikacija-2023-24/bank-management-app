@@ -33,7 +33,7 @@ public class BranchController {
 		return service.getAll();
 	}
 	
-	@GetMapping("/porudzbina/id/{id}")
+	@GetMapping("/branch/id/{id}")
 	public ResponseEntity<?> getBranchById(@PathVariable int id){
 		Optional<Branch> branch = service.findById(id);
 		if(branch.isPresent()) {
@@ -42,27 +42,27 @@ public class BranchController {
 		return ResponseEntity.status(404).body("Resource with requested ID: " + id + " does not exist!");
 	}
 	
-	@GetMapping("/branch/adress/{adress}")
-	public ResponseEntity<?> getBranchesByAdress(@PathVariable String adress){
-		List<Branch> branch = service.getBranchesByAdress(adress);
+	@GetMapping("/branch/address/{address}")
+	public ResponseEntity<?> getBranchesByAddress(@PathVariable String address){
+		List<Branch> branch = service.getBranchesByAdress(address);
 		if(branch.isEmpty()) {
-			return ResponseEntity.status(404).body("Resources with Adress: " + adress + " do not exist!");
+			return ResponseEntity.status(404).body("Resources with Address: " + address + " do not exist!");
 		}
 		return ResponseEntity.ok(branch);
 	}
 	
 	@PostMapping("/branch")
-	public ResponseEntity<?> createPorudzbina(@RequestBody Branch branch){
+	public ResponseEntity<?> createBranch(@RequestBody Branch branch){
 		if(service.existById(branch.getId())) {
 			return ResponseEntity.status(409).body("Resource already exists!");
 		}
 		Branch savedBranch = service.create(branch);
-		URI uri = URI.create("/porudzbina/id/" + savedBranch.getId());
+		URI uri = URI.create("/branch/id/" + savedBranch.getId());
 		return ResponseEntity.created(uri).body(savedBranch);
 	}
 	
 	@PutMapping("/branch/id/{id}")
-	public ResponseEntity<?> updatePorudzbina(@RequestBody Branch branch, @PathVariable int id){
+	public ResponseEntity<?> updateBranch(@RequestBody Branch branch, @PathVariable int id){
 		Optional<Branch> updatedBranch = service.update(branch, id);
 		if(updatedBranch.isPresent()) {
 			return ResponseEntity.ok(updatedBranch.get());
@@ -71,7 +71,7 @@ public class BranchController {
 				" updated because it does not exist!");
 	}
 	
-	@DeleteMapping("/brunch/id/{id}")
+	@DeleteMapping("/branch/id/{id}")
 	public ResponseEntity<?> deleteBranch(@PathVariable int id ){
 		if(service.existById(id)) {
 			service.delete(id);

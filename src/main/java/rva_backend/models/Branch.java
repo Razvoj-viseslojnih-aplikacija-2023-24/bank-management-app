@@ -15,7 +15,7 @@ public class Branch implements Serializable{
 	@SequenceGenerator (name= "BRANCH_SEQ_GENERATOR", sequenceName = "BRANCH_SEQ", allocationSize = 1)
 	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "BRANCH_SEQ_GENERATOR")
 	private int id;
-	private String adress;
+	private String address;
 	private int counters;
 	private boolean hasBoss;
 
@@ -32,10 +32,10 @@ public class Branch implements Serializable{
 		
 	}
 
-	public Branch(int id, String adress, int counters, boolean hasBoss, Bank bank, List<BankService> bankService) {
+	public Branch(int id, String address, int counters, boolean hasBoss, Bank bank, List<BankService> bankService) {
 		super();
 		this.id = id;
-		this.adress = adress;
+		this.address = address;
 		this.counters = counters;
 		this.hasBoss = hasBoss;
 		this.bank = bank;
@@ -50,12 +50,12 @@ public class Branch implements Serializable{
 		this.id = id;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public int getCounters() {

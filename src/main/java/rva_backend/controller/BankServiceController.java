@@ -35,7 +35,7 @@ public class BankServiceController {
 	
 	
 	@GetMapping("/bankService")
-	public List<BankService> getAllStavkaPorudzbines(){
+	public List<BankService> getAllBankServices(){
 		return service.getAll();
 	}
 	
@@ -77,7 +77,7 @@ public class BankServiceController {
 				" updated because it does not exist!");
 	}
 	
-	@DeleteMapping("/stavkaPorudzbine/id/{id}")
+	@DeleteMapping("/bankService/id/{id}")
 	public ResponseEntity<?> deleteBankService(@PathVariable int id ){
 		if(service.existById(id)) {
 			service.delete(id);

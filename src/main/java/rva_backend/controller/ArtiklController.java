@@ -20,7 +20,6 @@ import rva_backend.models.Artikl;
 
 @RestController
 public class ArtiklController {
-	
 	@Autowired
 	private ArtiklServiceImpl service;
 	
