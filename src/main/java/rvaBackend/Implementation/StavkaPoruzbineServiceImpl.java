@@ -1,0 +1,71 @@
+package rvaBackend.Implementation;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import rvaBackend.models.Artikl;
+import rvaBackend.models.Porudzbina;
+import rvaBackend.models.StavkaPorudzbine;
+import rvaBackend.repository.StavkaPorudzbineRepository;
+import rvaBackend.servisi.StavkaPorudzbineService;
+
+@Component
+public class StavkaPoruzbineServiceImpl implements StavkaPorudzbineService{
+
+	@Autowired
+	public StavkaPorudzbineRepository repo;
+	
+	@Override
+	public List<StavkaPorudzbine> getAll() {
+		return repo.findAll();
+	}
+
+	@Override
+	public boolean existById(int id) {
+		return repo.existsById(id);
+	}
+
+	@Override
+	public Optional<StavkaPorudzbine> findById(int id) {
+		return repo.findById(id);
+	}
+
+	@Override
+	public StavkaPorudzbine create(StavkaPorudzbine t) {
+		return repo.save(t);
+	}
+
+	@Override
+	public Optional<StavkaPorudzbine> update(StavkaPorudzbine t, int id) {
+		if(existById(id)) {
+			t.setId(id);
+			return Optional.of(repo.save(t));
+		}
+		return Optional.empty();
+	}
+
+	@Override
+	public void delete(int id) {
+		repo.deleteById(id);
+	}
+
+	@Override
+	public List<StavkaPorudzbine> getStavkasByCenaLessThan(double cena) {
+		return repo.findByCenaGreaterThanOrderByCena(cena);
+	}
+
+	@Override
+	public List<StavkaPorudzbine> getByForeignKey(Artikl artikl) {
+		return repo.findByArtikl(artikl);
+	}
+
+	@Override
+	public List<StavkaPorudzbine> getByForeignKey(Porudzbina porudzbina) {
+		return repo.findByPorudzbina(porudzbina);
+	}
+	
+	
+}
