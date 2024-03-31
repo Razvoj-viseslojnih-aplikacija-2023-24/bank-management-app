@@ -67,7 +67,7 @@ public class BranchControllerIntegrationTest {
 	@Order(2)
 	void testFindBranchById() {
 		long id = 1;
-		ResponseEntity<Branch> response = template.getForEntity("/porudzbina/id/" + id, Branch.class);
+		ResponseEntity<Branch> response = template.getForEntity("/branch/id/" + id, Branch.class);
 		int statusCode = response.getStatusCode().value();
 		Branch branch = response.getBody();
 		
@@ -101,7 +101,7 @@ public class BranchControllerIntegrationTest {
 		List<Branch> branches =  response.getBody();
 		
 		assertEquals(200, statusCode );
-		assertNotNull(branches.get(0));
+		assertTrue(!branches.isEmpty());
 		for(Branch b: branches) {
 			assertTrue(b.getBank().getId() == 1);
 		}

@@ -53,7 +53,7 @@ public class BranchServiceImpl implements BranchService {
 	}
 
 	@Override
-	public List<Branch> getBranchesByAdress(String address) {
+	public List<Branch> getBranchesByAddress(String address) {
 		return repo.findByAddressContainingIgnoreCase(address);
 	}
 

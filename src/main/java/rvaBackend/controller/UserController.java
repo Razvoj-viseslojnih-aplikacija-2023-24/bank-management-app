@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import rvaBackend.models.User;
@@ -37,7 +38,7 @@ public class UserController {
 		return ResponseEntity.status(404).body("Resource with requested ID: " + id + " does not exist.");
 	}
 	
-	@GetMapping("/user//{idNumber}")
+	@GetMapping("/user/idNumber/{idNumber}")
 	public ResponseEntity<?> getUsersbyIdNumber(@PathVariable String idNumber){
 		List<User> user = service.getUsersByIdNumber(idNumber);
 				if(user.isEmpty()) {

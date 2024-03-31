@@ -85,7 +85,7 @@ public class UserControllerIntegrationTest {
 		List<User> users =  response.getBody();
 		
 		assertEquals(200, statusCode );
-		assertNotNull(users.get(0));
+		assertTrue(!users.isEmpty());
 		for(User u : users) {
 			assertTrue(u.getIdNumber().contains(idNumber));
 	}
@@ -95,9 +95,9 @@ public class UserControllerIntegrationTest {
 	@Order(4)
 	void testCreateUser() {
 		User user = new User();
-		user.setName("Test name");
-		user.setSurname("Test Surname");
-		user.setIdNumber("Test idNumber");
+		user.setName("Name");
+		user.setSurname("Surname");
+		user.setIdNumber("1234567891234");
 		
 		HttpEntity<User> entity = new HttpEntity<User>(user);
 		createHighestId();

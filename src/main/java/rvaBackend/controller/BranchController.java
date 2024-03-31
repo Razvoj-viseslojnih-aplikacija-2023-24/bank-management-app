@@ -44,7 +44,7 @@ public class BranchController {
 	
 	@GetMapping("/branch/address/{address}")
 	public ResponseEntity<?> getBranchesByAddress(@PathVariable String address){
-		List<Branch> branch = service.getBranchesByAdress(address);
+		List<Branch> branch = service.getBranchesByAddress(address);
 		if(branch.isEmpty()) {
 			return ResponseEntity.status(404).body("Resources with Address: " + address + " do not exist!");
 		}
@@ -90,7 +90,7 @@ public class BranchController {
 				return ResponseEntity.status(404).body("Resources with foreign key: " + foreignKey
 						+ " do not exist!");
 			}else {
-				return ResponseEntity.ok(bank);
+				return ResponseEntity.ok(branch);
 			}
 		}
 		return ResponseEntity.status(400).body("Invalid foreign key!");

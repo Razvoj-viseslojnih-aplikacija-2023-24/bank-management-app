@@ -95,16 +95,16 @@ public class BankServiceControllerIntegrationTest {
 	@Test
 	@Order(4)
 	void testGetBankServiceByBranch() {
-		long branchId = 1;
+		long branchId = 2;
 		ResponseEntity<List<BankService>> response = template.exchange("/bankService/branch/" + branchId, HttpMethod.GET, null,
 				new ParameterizedTypeReference<List<BankService>>(){});
 		int statusCode = response.getStatusCode().value();
 		List<BankService> bankService =  response.getBody();
 		
 		assertEquals(200, statusCode );
-		assertNotNull(bankService.get(0));
+		assertTrue(!bankService.isEmpty());
 		for(BankService b: bankService) {
-			assertTrue(b.getBranch().getId() == 1);
+			assertTrue(b.getBranch().getId() == 2);
 		}
 	}
 	
