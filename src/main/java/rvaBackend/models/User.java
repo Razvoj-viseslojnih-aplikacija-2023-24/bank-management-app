@@ -25,11 +25,11 @@ public class User implements Serializable {
 	@JsonIgnore
 	private List<BankService> bankService;
 	
-	private User () {
+	public User () {
 		
 	}
 	
-	private User (int id, String name, String surname, String idNumber) {
+	public User (int id, String name, String surname, String idNumber) {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;

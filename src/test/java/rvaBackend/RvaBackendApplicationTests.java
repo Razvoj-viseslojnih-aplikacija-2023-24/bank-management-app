@@ -1,4 +1,4 @@
-package rva_backend;
+package rvaBackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
