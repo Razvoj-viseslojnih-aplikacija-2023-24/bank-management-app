@@ -57,7 +57,7 @@ public class BranchController {
 			return ResponseEntity.status(409).body("Resource already exists!");
 		}
 		Branch savedBranch = service.create(branch);
-		URI uri = URI.create("/branch/id/" + savedBranch.getId());
+		URI uri = URI.create("/branch/" + savedBranch.getId());
 		return ResponseEntity.created(uri).body(savedBranch);
 	}
 	

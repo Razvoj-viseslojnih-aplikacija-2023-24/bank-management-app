@@ -49,7 +49,7 @@ public class UserController {
 	
 	@PostMapping("/user")
 	public ResponseEntity<?> createUser(@RequestBody User user){
-		if (service.existById(user.getId())) {
+		if (service.findById(user.getId()).isPresent()) {
 			return ResponseEntity.status(409).body("Resource with" + " inserted values already exists.");
 		}
 		User savedUser = service.create(user);
@@ -68,7 +68,7 @@ public class UserController {
 	
 	@DeleteMapping("/user/id/{id}")
 	public ResponseEntity<?> deletedUser (@PathVariable int id){
-		if(service.existById(id)) {
+		if(service.findById(id).isPresent()) {
 			service.delete(id);
 			return ResponseEntity.ok("Resource with ID: " + id + " has been deleted.");
 		}

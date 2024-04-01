@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean existById(int id) {
-		return repo.existsById(id);
+		return repo.findById(id).isPresent();
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Optional<User> update(User t, int id) {
-		if(existById(id)) {
+		if(findById(id).isPresent()) {
 			t.setId(id);
 			return Optional.of(repo.save(t));
 		}
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void delete(int id) {
 		repo.deleteById(id);
-
+		
 	}
 
 	@Override
