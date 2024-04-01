@@ -138,6 +138,6 @@ public class UserControllerIntegrationTest {
 		ResponseEntity<String> response = template.exchange("/user/id/" + largestId, HttpMethod.DELETE, null, String.class);
 		
 		assertEquals(200, response.getStatusCode().value());
-		assertTrue(response.getBody().contains("Has been deleted!"));
+		assertTrue(response.getBody().contains("has been deleted"));
 	}
 }
