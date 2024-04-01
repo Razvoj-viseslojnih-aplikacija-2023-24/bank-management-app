@@ -49,7 +49,7 @@ public class BankControllerIntegrationTest {
 	
 	@Test
 	@Order(1)
-	void TestGetAllArtikls() {
+	void TestGetAllBanks() {
 		ResponseEntity<List<Bank>> response = template.exchange(
 				"/bank", HttpMethod.GET, null, new 
 					ParameterizedTypeReference<List<Bank>>() {});
@@ -90,13 +90,6 @@ public class BankControllerIntegrationTest {
 		assertNotNull(banks.get(0));
 		for(Bank b : banks) {
 			assertTrue(b.getTin()== tin);
-			// U slucaju brojcane vrednosti
-			// assertTrue(a.getVrednost() < predefinisanaVrednost)
-			// ILI
-			// assertTrue(a.getVrednost() > predefinisanaVrednost)
-			
-			//U slucaju boolean vrednosti
-			// assertTrue(a.getBooleanVrednost());
 		}
 	}
 	

@@ -52,7 +52,7 @@ public class BankServiceControllerIntegrationTest {
 
 	@Test
 	@Order(1)
-	void testGetAllBankService() {
+	void testGetAllBankServices() {
 		ResponseEntity<List<BankService>> response = template.exchange("/bankService", HttpMethod.GET, null,
 				new ParameterizedTypeReference<List<BankService>>() {
 				});
