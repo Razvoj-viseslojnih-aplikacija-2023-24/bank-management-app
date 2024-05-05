@@ -7,12 +7,16 @@ import { PorudzbinaComponent } from './main/porudzbina/porudzbina.component';
 import { HomeComponent } from './utility/home/home.component';
 import { AboutComponent } from './utility/about/about.component';
 import { AuthorComponent } from './utility/author/author.component';
+import { BankComponent } from './main/bank/bank.component';
+import { UserComponent } from './main/user/user.component';
+import { BranchComponent } from './main/branch/branch.component';
+import { BankServiceComponent } from './main/bank-service/bank-service.component';
 
 const routes: Routes = [
-  {path:'artikl', component:ArtiklComponent},
-  {path:'dobavljac', component:DobavljacComponent},
-  {path:'porudzbina', component:PorudzbinaComponent},
-  {path:'stavka-porudzbine', component:StavkaPorudzbineComponent},
+  {path:'bank', component:BankComponent},
+  {path:'user', component:UserComponent},
+  {path:'branch', component:BranchComponent},
+  {path:'bank-service', component:BankServiceComponent},
   {path:'home', component:HomeComponent},
   {path:'about', component:AboutComponent},
   {path:'author', component:AuthorComponent},

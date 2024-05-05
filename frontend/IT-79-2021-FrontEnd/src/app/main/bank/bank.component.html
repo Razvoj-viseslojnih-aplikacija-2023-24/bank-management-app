@@ -1,0 +1,49 @@
+<mat-toolbar color="primary">
+    <span class="title-center">Bank</span>
+</mat-toolbar>
+
+<div class="container mat-elavation-z8">
+    <mat-table [dataSource]="dataSource" class="mat-cell">
+        <!--name-->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.name }}</mat-cell>
+      </ng-container>
+      <!--id-->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+      </ng-container>
+      <!-- contact -->
+      <ng-container matColumnDef="contact">
+        <mat-header-cell *matHeaderCellDef>Contact</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.contact }}</mat-cell>
+      </ng-container>
+      <!-- tin -->
+      <ng-container matColumnDef="tin">
+        <mat-header-cell *matHeaderCellDef>Tin</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.tin }}</mat-cell>
+      </ng-container>
+      <!-- Action Buttons -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button color="accent" (click)="openDialog(1)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row; let i = index">
+              <button mat-icon-button color="accent" (click)="openDialog(2, row.id, row.name, row.contact, row.tin)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="accent" (click)="openDialog(3, row.id, row.name, row.contact, row.tin)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row
+            style="cursor: pointer;"
+            *matRowDef="let row; columns: displayedColumns">
+      </mat-row>
+     </mat-table>
+</div>

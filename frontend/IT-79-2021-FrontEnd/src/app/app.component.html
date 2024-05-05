@@ -6,39 +6,37 @@
         </a>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title> Aplikacija </mat-panel-title>
+            <mat-panel-title> Application </mat-panel-title>
             <mat-panel-description style="text-align: center">
-              Aplikacija za vodjenje evidencije ...
+              Application for keeping records ...
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-nav-list>
-            <a mat-raised-button color="primary" [routerLink]="['/artikl']">Artikl</a>
+            <a mat-raised-button color="primary" [routerLink]="['/bank']">Bank</a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-raised-button color="accent" [routerLink]="['/dobavljac']">Dobavljac</a>
+            <a mat-raised-button color="primary" [routerLink]="['/user']">User</a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-stroked-button color="primary" [routerLink]="['/porudzbina']"  
-              >Porudzbina</a
-            >
+            <a mat-raised-button color="primary" [routerLink]="['/branch']">Branch</a>
           </mat-nav-list>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title style="text-align: left"
-              >Informacije</mat-panel-title>
+              >Informations</mat-panel-title>
             <mat-panel-description style="text-align: center">
-              Osnovne informacije o aplikaciji
+              Basic information about the application
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-nav-list>
-            <a mat-button [routerLink]="['/about']">O nama</a>
+            <a mat-button [routerLink]="['/about']">About us</a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-button [routerLink]="['/author']">Autor</a>
+            <a mat-button [routerLink]="['/author']">Author</a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-button [routerLink]="['/home']">Pocetna</a>
+            <a mat-button [routerLink]="['/home']">Home page</a>
           </mat-nav-list>
         </mat-expansion-panel>
       </mat-accordion>

@@ -1,0 +1,4 @@
+export const BANK_URL = "http://localhost:8082/bank"
+export const BRANCH_URL = "http://localhost:8082/branch"
+export const USER_URL = "http://localhost:8082/user"
+export const BANK_SERVICE_URL = "http://localhost:8082/bankService"
