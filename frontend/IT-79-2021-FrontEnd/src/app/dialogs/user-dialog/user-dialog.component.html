@@ -1,1 +1,32 @@
-<p>user-dialog works!</p>
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag == 1">Add user</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2">Update user: {{data.name}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3">Delete user with ID: {{data.id}}</h3>
+
+    <form class="mat-dialog-content" #formControl="ngForm">
+        <div class="form">
+         <mat-form-field>
+             <input matInput placeholder="Name" name="Name" [disabled]="flag==3" [(ngModel)]="data.name" required />
+         </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <input matInput placeholder="Surname" name="Surname" [disabled]="flag==3" [(ngModel)]="data.surname" required />
+            </mat-form-field>
+           </div>
+
+        <div class="form">
+            <mat-form-field>
+                <input matInput placeholder="IdNumber" name="IdNumber" [disabled]="flag==3" [(ngModel)]="data.idNumber" required />
+            </mat-form-field>
+           </div>
+    </form>
+    
+    <div class="mat-dialog-actions">
+        <button matButton *ngIf="flag == 1" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="add()" >Save</button>
+        <button matButton *ngIf="flag == 2" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="update()">Edit</button>
+        <button matButton *ngIf="flag == 3" mat-dialog-close="1" (click)="delete()">Delete</button>
+        <button matButton (click)="cancel()">Cancel</button>
+    </div>
+</div>
