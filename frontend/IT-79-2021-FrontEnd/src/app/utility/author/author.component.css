@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 10px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2em;
+    color: #333;
+    margin-right: 10px;
+}
+
+.icon {
+    font-size: 25px;
+    color: #007BFF;
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-image {
+    max-width: 200px;
+    height: auto;
+    border-radius: 20%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.info-wrapper {
+    flex: 1;
+}
+
+.name {
+    color: #007BFF;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.bio, .contact, .birthdate, .university, .about-me, .social {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact mat-icon, .birthdate mat-icon, .university mat-icon, .social mat-icon {
+    margin-right: 5px;
+}
+
+.social a {
+    text-decoration: none;
+    color: #007BFF;
+    display: flex;
+    align-items: center;
+}
+
+.social a:hover {
+    text-decoration: underline;
+}

@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArtiklComponent } from './main/artikl/artikl.component';
-import { DobavljacComponent } from './main/dobavljac/dobavljac.component';
-import { StavkaPorudzbineComponent } from './main/stavka-porudzbine/stavka-porudzbine.component';
-import { PorudzbinaComponent } from './main/porudzbina/porudzbina.component';
 import { HomeComponent } from './utility/home/home.component';
 import { AboutComponent } from './utility/about/about.component';
 import { AuthorComponent } from './utility/author/author.component';

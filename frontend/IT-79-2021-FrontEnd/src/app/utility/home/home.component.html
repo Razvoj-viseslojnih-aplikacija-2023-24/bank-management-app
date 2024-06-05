@@ -1,1 +1,18 @@
-<p>home works!</p>
+<mat-toolbar color="primary" class="title-wrapper">
+    <span class="title">Home</span>
+    <mat-icon>home</mat-icon>
+  </mat-toolbar>
+    <div class="box-wrapper">
+      <div class="box">
+        <div class="box-title">Bank</div>
+        <button mat-raised-button class="custom-button" (click)="navigate('/bank')">Open</button>
+      </div>
+      <div class="box">
+        <div class="box-title">Branch</div>
+        <button mat-raised-button class="custom-button" (click)="navigate('/branch')">Open</button>
+      </div>
+      <div class="box">
+        <div class="box-title">User</div>
+        <button mat-raised-button class="custom-button" (click)="navigate('/user')">Open</button>
+      </div>
+    </div>

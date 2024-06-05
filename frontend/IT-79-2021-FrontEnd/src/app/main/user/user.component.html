@@ -1,8 +1,14 @@
 <mat-toolbar color="primary">
-    <span class="title-center">User</span>
+    <span class="title-center"> User</span>
 </mat-toolbar>
 
 <div class="container mat-elavation-z8">
+  <div class="filter-field">
+    <mat-form-field subscriptSizing="dynamic">
+      <input matInput placeholder="Pretraga..." name="filterField"
+      (keyup)="applyFilter($event)"/>
+    </mat-form-field>
+  </div>
     <mat-table [dataSource]="dataSource" class="mat-cell">
         <!--name-->
     <ng-container matColumnDef="name">

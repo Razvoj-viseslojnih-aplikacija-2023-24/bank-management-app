@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { UserDialogComponent } from 'src/app/dialogs/user-dialog/user-dialog.component';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-user',
@@ -16,6 +18,8 @@ export class UserComponent {
   dataSource!: MatTableDataSource<User>;
   subscription!: Subscription;
 
+  @ViewChild(MatSort, {static:false}) sort!:MatSort;
+  @ViewChild(MatPaginator, {static:false}) paginator!:MatPaginator;
   constructor (private service:UserService, public dialog:MatDialog){}
 
   ngOnInit(): void {
@@ -29,6 +33,9 @@ export class UserComponent {
     this.subscription = this.service.getAllUsers().subscribe(
     (data)=> {
       this.dataSource =  new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(data);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       }
     ),
     (error:Error)=> {
@@ -46,5 +53,11 @@ export class UserComponent {
         }
       }
     )
+  }
+  public applyFilter(filter:any) {
+    filter = filter.target.value;
+    filter = filter.trim();
+    filter = filter.toLocaleLowerCase();
+    this.dataSource.filter = filter;
   }
 }

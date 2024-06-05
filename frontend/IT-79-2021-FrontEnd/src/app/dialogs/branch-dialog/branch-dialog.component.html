@@ -1,1 +1,42 @@
-<p>branch-dialog works!</p>
+<div class = container>
+    <h3 mat-dialog-title *ngIf="flag == 1">Add Branch</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2">Update Branch: {{data.id}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3">Delete Branch: {{data.id}}</h3>
+  
+    <form class="mat-dialog-content" #formControl="ngForm">
+   
+    <div class = "form">
+      <mat-form-field>
+        <input matInput placeholder="Address" name="Address" [disabled]="flag==3" [(ngModel)]="data.address" required />
+      </mat-form-field>
+    </div>
+  
+    <div class="form">
+        <mat-form-field>
+            <input matInput placeholder="Counters" name="Counters" [disabled]="flag==3" [(ngModel)]="data.counters" required />
+        </mat-form-field>
+       </div>
+
+    <div class = "form">
+      <mat-checkbox name ="hasBoss" [disabled]="flag==3" [(ngModel)]="data.hasBoss">
+        Has Boss
+      </mat-checkbox>
+    </div>
+  
+    <div class = "form">
+      <mat-select [compareWith]="compare" placeholder = "Bank" name="Bank"
+      [disabled]="flag==3" [(ngModel)] ="data.bank" required>
+        <mat-option *ngFor="let bank of banks" [value]="bank">
+          {{bank.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+    </form>
+  
+    <div class="mat-dialog-actions">
+      <button matButton *ngIf="flag == 1" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="add()">Save</button>
+      <button matButton *ngIf="flag == 2" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="update()">Edit</button>
+      <button matButton *ngIf="flag == 3" mat-dialog-close="1" (click)="delete()">Delete</button>
+      <button matButton (click)="cancel()">Cancel</button>
+  </div>
+  </div>

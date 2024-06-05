@@ -12,31 +12,30 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-nav-list>
-            <a mat-raised-button color="primary" [routerLink]="['/bank']">Bank</a>
+            <a mat-raised-button color="primary" [routerLink]="['/bank']">Bank <mat-icon>account_balance</mat-icon></a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-raised-button color="primary" [routerLink]="['/user']">User</a>
+            <a mat-raised-button color="primary" [routerLink]="['/user']">User <mat-icon>account_circle</mat-icon></a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-raised-button color="primary" [routerLink]="['/branch']">Branch</a>
+            <a mat-raised-button color="primary" [routerLink]="['/branch']">Branch <mat-icon>store</mat-icon></a>
           </mat-nav-list>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title style="text-align: left"
-              >Informations</mat-panel-title>
+            <mat-panel-title style="text-align: left">Informations</mat-panel-title>
             <mat-panel-description style="text-align: center">
               Basic information about the application
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-nav-list>
-            <a mat-button [routerLink]="['/about']">About us</a>
+            <a mat-button routerLink="/about">About us <mat-icon>info</mat-icon></a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-button [routerLink]="['/author']">Author</a>
+            <a mat-button routerLink="/author">Author <mat-icon>person</mat-icon></a>
           </mat-nav-list>
           <mat-nav-list>
-            <a mat-button [routerLink]="['/home']">Home page</a>
+            <a mat-button routerLink="/home">Home page <mat-icon>home</mat-icon></a>
           </mat-nav-list>
         </mat-expansion-panel>
       </mat-accordion>

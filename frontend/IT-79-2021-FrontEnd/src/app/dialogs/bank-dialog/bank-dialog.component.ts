@@ -33,31 +33,31 @@ export class BankDialogComponent {
     ),
     (error:Error)=>{
       console.log(error.name+' '+ error.message);
-      this.snackBar.open("Unsuccessfull adding", "Close", {duration:3500});
+      this.snackBar.open(`Unsuccessfull adding`, `Close`, {duration:3500});
     }
   }
 
   public update(){
     this.service.updateBank(this.data).subscribe(
       (data)=>{
-        this.snackBar.open(`Bank with name:${data.name} is updated successfully`, "OK", {duration:3500})
+        this.snackBar.open(`Bank with name:${data.name} is updated successfully`, `OK`, {duration:3500})
       }
     ),
     (error:Error)=>{
       console.log(error.name+' '+ error.message);
-      this.snackBar.open("Unsuccessfull updating", "Close", {duration:3500});
+      this.snackBar.open(`Unsuccessfull updating`, `Close`, {duration:3500});
     }
   }
 
   public delete(){
     this.service.deleteBank(this.data.id).subscribe(
       (data)=>{
-        this.snackBar.open("Successfull deleting", "OK", {duration:3500});
+        this.snackBar.open(`Successfull deleting`, `OK`, {duration:3500});
       }
     ),
     (error:Error)=>{
       console.log(error.name+' '+ error.message);
-      this.snackBar.open("Unsuccessfull deleting", "Close", {duration:3500});
+      this.snackBar.open(`Unsuccessfull deleting`, `Close`, {duration:3500});
     }
   }
 }

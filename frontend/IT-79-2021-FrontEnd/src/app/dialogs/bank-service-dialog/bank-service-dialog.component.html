@@ -1,1 +1,48 @@
-<p>bank-service-dialog works!</p>
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag == 1">Add bank service</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2">Update bank service: {{data.id}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3">Delete bank service: {{data.id}}</h3>
+  
+    <form class="mat-dialog-content" #formControl="ngForm">
+       <div class="form">
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Name" name="Name" [disabled]="flag==3" [(ngModel)]="data.name" required />
+        </mat-form-field>
+       </div>
+  
+       <div class="form">
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Service description" name="Service description" [disabled]="flag==3" [(ngModel)]="data.serviceDescription" required />
+        </mat-form-field>
+       </div>
+  
+       <div class="form">
+        <mat-form-field class="form-field">
+            <input matInput [matDatepicker]="contractDate" placeholder="Contract date" name="Contract date" [disabled]="flag==3" [(ngModel)]="data.contractDate" required />
+        <mat-datepicker-toggle matSuffix [for]="contractDate"></mat-datepicker-toggle>
+        <mat-datepicker #contractDate></mat-datepicker>
+    </mat-form-field>
+       </div>
+  
+       <div class="form">
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Commission" name="Commission" [disabled]="flag==3" [(ngModel)]="data.commission" required />
+        </mat-form-field>
+       </div>
+  
+        <div class="form">
+            <mat-select [compareWith]="compare" class="form-field" placeholder="User" name="User" [disabled]="flag==3" [(ngModel)]="data.user" required>
+                <mat-option *ngFor="let user of users" [value]="user">
+                    {{user.name}}
+                </mat-option>
+            </mat-select>
+        </div>
+    </form>
+  
+    <div class="form-field mat-dialog-actions">
+        <button mat-raised-button color="accent" *ngIf="flag == 1" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="add()">Save</button>
+        <button mat-raised-button color="accent" *ngIf="flag == 2" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="update()">Update</button>
+        <button mat-raised-button color="accent" *ngIf="flag == 3" mat-dialog-close="1" (click)="delete()">Delete</button>
+        <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+    </div>
+  </div>

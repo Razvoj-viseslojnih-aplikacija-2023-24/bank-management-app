@@ -1,0 +1,53 @@
+.mat-toolbar.title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 1.5em;
+    color: white;
+    margin-right: 10px;
+}
+
+
+mat-icon {
+    font-size: 1.5em;
+    color: white;
+}
+
+.box-wrapper {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.box {
+    width: 60%;
+    margin-bottom: 20px; 
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.box-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.custom-button {
+    background-color: #007BFF;
+    color: white;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #0056b3;
+}

@@ -60,4 +60,5 @@ export class UserDialogComponent {
       this.snackBar.open("Unsuccessfull deleting", "Close", {duration:3500});
     }
   }
+  
 }
